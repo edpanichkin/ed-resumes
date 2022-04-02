@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-# ed-resumes
-baseJava -> w Maven
-
-http://ed-resumes.herokuapp.com/
-=======
 # [Курс BaseJava (обновленный и переработанный)](http://javaops.ru/reg/basejava)
 
 ## Разработка web-приложения "База данных резюме"
