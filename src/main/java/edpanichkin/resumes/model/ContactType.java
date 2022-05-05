@@ -1,5 +1,8 @@
 package edpanichkin.resumes.model;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+
 public enum ContactType {
   PHONE("Тел."),
   MOBILE("Мобильный"),
@@ -21,6 +24,6 @@ public enum ContactType {
   }
 
   public String toHtml(String value) {
-    return title + ": " + value;
+    return Arrays.toString(title.getBytes(StandardCharsets.UTF_8)) + ": " + value;
   }
 }
