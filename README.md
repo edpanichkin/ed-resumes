@@ -1,5 +1,5 @@
  ed-resumes / baseJava -> w Maven (http://ed-resumes.herokuapp.com/)
-
+ (deploy -> heroku:deploy-war)
 # [Курс BaseJava (обновленный и переработанный)](http://javaops.ru/reg/basejava)
 
 ## Разработка web-приложения "База данных резюме"

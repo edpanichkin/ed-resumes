@@ -29,7 +29,6 @@ public class HelloServlet extends HttpServlet {
       e.printStackTrace();
     }
 
-
     printWriter.write(System.getProperty("java.class.path") + "<br>" + System.getProperty("java.version"));
 
     printWriter.close();

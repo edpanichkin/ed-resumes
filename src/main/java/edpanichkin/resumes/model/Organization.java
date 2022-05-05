@@ -17,7 +17,7 @@ import static edpanichkin.resumes.util.DateUtil.of;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Organization implements Serializable {
-
+  public static final Organization EMPTY = new Organization("", "", Position.EMPTY);
   private Link homePage;
   private List<Position> positions;
 
@@ -44,14 +44,14 @@ public class Organization implements Serializable {
   @Override
   public String toString() {
     return "Organization{" +
-        "homePage=" + homePage +
-        ", positions=" + positions +
-        '}';
+            "homePage=" + homePage +
+            ", positions=" + positions +
+            '}';
   }
 
   @XmlAccessorType(XmlAccessType.FIELD)
   public static class Position implements Serializable {
-
+    public static final Position EMPTY = new Position();
 
     private static final long serialVersionUID = 1L;
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
@@ -65,12 +65,12 @@ public class Organization implements Serializable {
     }
 
     public Position(int startYear, Month startMonth, String title,
-        String description) {
+                    String description) {
       this(of(startYear, startMonth), NOW, title, description);
     }
 
     public Position(int startYear, Month startMonth, int endYear, Month endMonth, String title,
-        String description) {
+                    String description) {
       this(of(startYear, startMonth), of(endYear, endMonth), title, description);
     }
 
@@ -99,6 +99,26 @@ public class Organization implements Serializable {
     public String getDescription() {
       return description;
     }
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      Position position = (Position) o;
+      return Objects.equals(startDate, position.startDate) &&
+              Objects.equals(endDate, position.endDate) &&
+              Objects.equals(title, position.title) &&
+              Objects.equals(description, position.description);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(startDate, endDate, title, description);
+    }
+
+    @Override
+    public String toString() {
+      return "Position(" + startDate + ',' + endDate + ',' + title + ',' + description + ')';
+    }
   }
 
   @Override
@@ -109,7 +129,6 @@ public class Organization implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-
     Organization that = (Organization) o;
 
     if (!Objects.equals(homePage, that.homePage)) {
