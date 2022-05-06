@@ -89,8 +89,6 @@ public class ResumeServlet extends HttpServlet {
       storage.update(r);
     }
     resp.sendRedirect("resume");
-    storage.update(r);
-    resp.sendRedirect("resume");
   }
 
   @Override
