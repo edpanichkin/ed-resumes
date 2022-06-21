@@ -1,8 +1,5 @@
 package edpanichkin.resumes.model;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-
 public enum ContactType {
   PHONE("Тел."),
   MOBILE("Мобильный"),
@@ -31,7 +28,7 @@ public enum ContactType {
       return toLink(value);
     }
   },
-  STATCKOVERFLOW("Профиль Stackoverflow") {
+  STACKOVERFLOW("Профиль Stackoverflow") {
     @Override
     public String toHtml0(String value) {
       return toLink(value);
